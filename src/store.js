@@ -1,4 +1,4 @@
-function Store(initState) {
+export function Store(initState) {
     this.state = initState || {};
     this.listener = {};
     return this;
@@ -28,5 +28,5 @@ Store.prototype.dispatch = function (newState) {
     ids = [...new Set(ids)];
     ids.forEach(function (listenerKey) {
         this.listener[listenerKey].callback(this.state);
-    },this);
+    }, this);
 }

@@ -64,10 +64,10 @@ function makeElement(type, textOrPropsOrChild, ...otherChildren) {
     return el;
 }
 
-const a = (...args) => makeElement(`a`, ...args);
-const button = (...args) => makeElement(`button`, ...args);
-const div = (...args) => makeElement(`div`, ...args);
-const h1 = (...args) => makeElement(`h1`, ...args);
-const header = (...args) => makeElement(`header`, ...args);
-const p = (...args) => makeElement(`p`, ...args);
-const span = (...args) => makeElement(`span`, ...args);
+export const a = (...args) => makeElement(`a`, ...args);
+export const button = (...args) => makeElement(`button`, ...args);
+export const div = (...args) => makeElement(`div`, ...args);
+export const h1 = (...args) => makeElement(`h1`, ...args);
+export const header = (...args) => makeElement(`header`, ...args);
+export const p = (...args) => makeElement(`p`, ...args);
+export const span = (...args) => makeElement(`span`, ...args);
