@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../index.js"></script>
+    <script src="../src/store.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script>
+    const store = new Store({ title: '很高兴遇见你', content: '测试一下' });
+    let state = store.state;
+    class BaseGoodByeHx {
+        constructor() {
+            this.state = state;
+            this.render();
+        }
+        render() { }
+    }
+
+
+    const TableRow = (initialData) => {
+        let el = null;
+        let id = 'hahaha'
+        const render = data => (
+            div(
+                { style: { color: 'red' } },
+                h1(data.title),
+                h1(data.content)
+            )
+        );
+
+        const update = (prevEl, newData) => {
+            const nextEl = render(newData);
+
+            if (nextEl.isEqualNode(prevEl)) {
+                console.warn(`render() was called but there was no change in the rendered output`, el);
+            } else {
+                prevEl.parentElement.replaceChild(nextEl, prevEl);
+            }
+
+            return nextEl;
+        };
+
+        el = render(initialData);
+
+        store.listen(id, ['title', 'content'], (newData) => {
+            el = update(el, newData);
+        });
+
+        return el;
+    };
+    setTimeout(() => {
+        store.dispatch(Object.assign({}, state, { title: '不高兴遇见你' }))
+    }, 1000);
+    document.getElementById('app').appendChild(TableRow(store.state));
+</script>
+
+</html>
