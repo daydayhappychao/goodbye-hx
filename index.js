@@ -36,7 +36,6 @@ function setStyles(el, styles) {
 
 function makeElement(type, textOrPropsOrChild, ...otherChildren) {
     const el = document.createElement(type);
-
     if (Array.isArray(textOrPropsOrChild)) {
         appendArray(el, textOrPropsOrChild);
     } else if (textOrPropsOrChild instanceof window.Element) {
@@ -64,10 +63,10 @@ function makeElement(type, textOrPropsOrChild, ...otherChildren) {
     return el;
 }
 
-export const a = (...args) => makeElement(`a`, ...args);
-export const button = (...args) => makeElement(`button`, ...args);
-export const div = (...args) => makeElement(`div`, ...args);
-export const h1 = (...args) => makeElement(`h1`, ...args);
-export const header = (...args) => makeElement(`header`, ...args);
-export const p = (...args) => makeElement(`p`, ...args);
-export const span = (...args) => makeElement(`span`, ...args);
+export const el = (elementName, ...args) => makeElement(elementName, ...args);
+// export const button = (...args) => makeElement(`button`, ...args);
+// export const div = (...args) => makeElement(`div`, ...args);
+// export const h1 = (...args) => makeElement(`h1`, ...args);
+// export const header = (...args) => makeElement(`header`, ...args);
+// export const p = (...args) => makeElement(`p`, ...args);
+// export const span = (...args) => makeElement(`span`, ...args);
