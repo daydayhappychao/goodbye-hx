@@ -1,13 +1,18 @@
-export class Store {
+import * as deepEql from 'deep-eql'
+class Store {
     constructor(initState?) {
         if (initState) {
             this.state = initState
         }
+        this.getState = this.getState.bind(this)
     }
     state: any = {}
 
 
     listener = {}
+    getState() {
+        return this.state
+    }
     init = (initState?) => {
         this.state = initState
     }
@@ -20,7 +25,7 @@ export class Store {
     dispatch = (newState) => {
         let ids = [];
         for (const key in this.state) {
-            if (newState[key] !== this.state[key]) {
+            if (!deepEql(newState[key], this.state[key])) {
                 this.state[key] = newState[key];
                 for (const listenerKey in this.listener) {
                     if (this.listener[listenerKey].fields.includes(key)) {
@@ -38,4 +43,4 @@ export class Store {
 
 const oriStore = new Store()
 export default oriStore
-export let state = oriStore._state
+export let getState = oriStore.getState

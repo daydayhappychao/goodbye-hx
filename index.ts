@@ -1,3 +1,7 @@
+import Component from './src/Component'
+import _store, { getState as _getState } from './src/store'
+export { createApp } from './src/utils'
+
 const attributeExceptions = [
     `role`,
 ];
@@ -34,7 +38,7 @@ function setStyles(el, styles) {
     });
 }
 
-function makeElement(type, textOrPropsOrChild, ...otherChildren) {
+function makeElement(type, textOrPropsOrChild?, ...otherChildren) {
     const el = document.createElement(type);
     if (Array.isArray(textOrPropsOrChild)) {
         appendArray(el, textOrPropsOrChild);
@@ -59,14 +63,10 @@ function makeElement(type, textOrPropsOrChild, ...otherChildren) {
     }
 
     if (otherChildren) appendArray(el, otherChildren);
-
     return el;
 }
 
-export const el = (elementName, ...args) => makeElement(elementName, ...args);
-// export const button = (...args) => makeElement(`button`, ...args);
-// export const div = (...args) => makeElement(`div`, ...args);
-// export const h1 = (...args) => makeElement(`h1`, ...args);
-// export const header = (...args) => makeElement(`header`, ...args);
-// export const p = (...args) => makeElement(`p`, ...args);
-// export const span = (...args) => makeElement(`span`, ...args);
+export const el = (elementName, ...args) => makeElement(elementName, ...args)
+export default Component
+export const store = _store
+export const getState = _getState
