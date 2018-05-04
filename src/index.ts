@@ -48,7 +48,7 @@ function makeElement(type, textOrPropsOrChild?, ...otherChildren) {
         appendText(el, textOrPropsOrChild);
     } else if (typeof textOrPropsOrChild === `object`) {
         Object.keys(textOrPropsOrChild).forEach((propName) => {
-            if (propName in el || attributeExceptions.includes(propName)) {
+            if (propName in el || attributeExceptions.indexOf(propName) !== -1) {
                 const value = textOrPropsOrChild[propName];
 
                 if (propName === `style`) {
