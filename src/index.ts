@@ -1,6 +1,6 @@
-import Component from './src/Component'
-import _store, { getState as _getState } from './src/store'
-export { createApp } from './src/utils'
+import Component from './Component'
+import _store, { getState as _getState } from './store'
+export { createApp } from './utils'
 
 const attributeExceptions = [
     `role`,

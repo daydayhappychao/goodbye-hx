@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({14:[function(require,module,exports) {
+})({12:[function(require,module,exports) {
 var global = (1,eval)("this");
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -457,7 +457,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
   return typeDetect;
 });
-},{}],13:[function(require,module,exports) {
+},{}],11:[function(require,module,exports) {
 'use strict';
 /* globals Symbol: false, Uint8Array: false, WeakMap: false */
 /*!
@@ -908,11 +908,11 @@ function objectEqual(leftHandOperand, rightHandOperand, options) {
 function isPrimitive(value) {
   return value === null || (typeof value === 'undefined' ? 'undefined' : _typeof(value)) !== 'object';
 }
-},{"type-detect":14}],8:[function(require,module,exports) {
+},{"type-detect":12}],6:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var deep_eql_1 = require("deep-eql");
+var deepEql = require("deep-eql");
 var Store = /** @class */function () {
     function Store(initState) {
         var _this = this;
@@ -930,7 +930,7 @@ var Store = /** @class */function () {
         this.dispatch = function (newState) {
             var ids = [];
             for (var key in _this.state) {
-                if (!deep_eql_1(newState[key], _this.state[key])) {
+                if (!deepEql(newState[key], _this.state[key])) {
                     _this.state[key] = newState[key];
                     for (var listenerKey in _this.listener) {
                         if (_this.listener[listenerKey].fields.includes(key)) {
@@ -959,12 +959,12 @@ var oriStore = new Store();
 exports.default = oriStore;
 exports.getState = oriStore.getState;
 //# sourceMappingURL=store.js.map
-},{"deep-eql":13}],7:[function(require,module,exports) {
+},{"deep-eql":11}],5:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var store_1 = require("./store");
-var index_1 = require("../index");
+var index_1 = require("./index");
 var BaseGoodByeHx = /** @class */function () {
     function BaseGoodByeHx(id, fields) {
         var _this = this;
@@ -993,7 +993,7 @@ var BaseGoodByeHx = /** @class */function () {
 }();
 exports.default = BaseGoodByeHx;
 //# sourceMappingURL=Component.js.map
-},{"./store":8,"../index":5}],9:[function(require,module,exports) {
+},{"./store":6,"./index":3}],7:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -1003,15 +1003,15 @@ function createApp(id, App) {
 }
 exports.createApp = createApp;
 //# sourceMappingURL=utils.js.map
-},{}],5:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Component_1 = require("./src/Component");
-var store_1 = require("./src/store");
-var utils_1 = require("./src/utils");
+var Component_1 = require("./Component");
+var store_1 = require("./store");
+var utils_1 = require("./utils");
 exports.createApp = utils_1.createApp;
 var attributeExceptions = ["role"];
 function appendText(el, text) {
@@ -1082,7 +1082,7 @@ exports.default = Component_1.default;
 exports.store = store_1.default;
 exports.getState = store_1.getState;
 //# sourceMappingURL=index.js.map
-},{"./src/Component":7,"./src/store":8,"./src/utils":9}],2:[function(require,module,exports) {
+},{"./Component":5,"./store":6,"./utils":7}],2:[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -1105,7 +1105,7 @@ var __importDefault = this && this.__importDefault || function (mod) {
     return mod && mod.__esModule ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = __importDefault(require("../dist/index"));
+var index_1 = __importDefault(require("../lib/index"));
 index_1.store.init({ title: '很高兴遇见你', content: '测试一下', button: '按钮没按' });
 var App = /** @class */function (_super) {
     __extends(App, _super);
@@ -1137,7 +1137,7 @@ var Button = /** @class */function (_super) {
     return Button;
 }(index_1.default);
 index_1.createApp('app', App);
-},{"../dist/index":5}],17:[function(require,module,exports) {
+},{"../lib/index":3}],13:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -1165,9 +1165,9 @@ module.bundle.Module = Module;
 
 var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-  var hostname = undefined || location.hostname;
+  var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65250' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60683' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -1306,5 +1306,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[17,2])
+},{}]},{},[13,2])
 //# sourceMappingURL=/test.8e221c2e.map

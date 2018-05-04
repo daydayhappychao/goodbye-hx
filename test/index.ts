@@ -1,4 +1,4 @@
-import Component, { getState, store, el, createApp } from '../dist/index'
+import Component, { getState, store, el, createApp } from '../lib/index'
 store.init({ title: '很高兴遇见你', content: '测试一下', button: '按钮没按' })
 
 class App extends Component {

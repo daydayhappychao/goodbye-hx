@@ -7,10 +7,13 @@
         // "noImplicitAny": true,
         "experimentalDecorators": true,
         "sourceMap": true,
-        "outDir": "./dist/"
+        "outDir": "./lib/"
     },
     "exclude": [
         "node_modules",
         "test"
+    ],
+    "include": [
+        "./src/**/*"
     ]
 }

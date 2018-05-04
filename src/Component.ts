@@ -1,5 +1,5 @@
 import store from './store'
-import { el } from '../index'
+import { el } from './index'
 export default class BaseGoodByeHx {
     constructor(id, fields) {
         this.id = id
