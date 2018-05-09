@@ -2,10 +2,10 @@
 
 # 使用
 
-`` npm i goodbye-hx babel-plugin-transform-goodbyehx-jsx --save ``
+`` npm i goodbyehx babel-plugin-transform-goodbyehx-jsx --save ``
 ```
 // index.jsx
-import * as Gbh from 'goodbye-hx';
+import * as Gbh from 'goodbyehx';
 const store = {
     // your original store here
     color: 'red'
