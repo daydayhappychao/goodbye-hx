@@ -1,6 +1,6 @@
 import _Component from './Component'
 import _store, { getState as _getState } from './store'
-import { createApp } from './utils'
+import { createApp as _createApp } from './utils'
 
 const attributeExceptions = [
   `role`,
@@ -68,12 +68,12 @@ function makeElement(type, textOrPropsOrChild?, ...otherChildren) {
   return el;
 }
 
-const app = {
-  el: (elementName, ...args) => makeElement(elementName, ...args),
-  Component: _Component,
-  store: _store,
-  getState: _getState,
-  createApp: createApp
-}
+// const app = {
+export const el = (elementName, ...args) => makeElement(elementName, ...args);
+export const Component = _Component;
+export const store = _store;
+export const getState = _getState;
+export const createApp = _createApp;
+// }
 
-export default app;
+// export default app;

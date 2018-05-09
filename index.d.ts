@@ -1,4 +1,4 @@
-export default goodbyehx;
+export = goodbyehx;
 export as namespace goodbyehx;
 declare namespace goodbyehx {
   class Component {

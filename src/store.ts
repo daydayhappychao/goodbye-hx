@@ -28,7 +28,7 @@ class Store {
             if (!deepEql(newState[key], this.state[key])) {
                 this.state[key] = newState[key];
                 for (const listenerKey in this.listener) {
-                    if (this.listener[listenerKey].fields.includes(key)) {
+                    if (this.listener[listenerKey].fields.indexOf(key) !== -1) {
                         ids.push(listenerKey);
                     }
                 }

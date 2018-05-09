@@ -1,4 +1,4 @@
-import app from './index'
+import { el } from './index'
 import store from './store'
 
 export default class BaseGoodByeHx {
@@ -12,17 +12,17 @@ export default class BaseGoodByeHx {
     });
   }
   id: string
-  fields: string[]|undefined[]
-  element: Element|any
+  fields: string[] | undefined[]
+  element: Element | any
   render(newData?) {
-    return app.el('div')
+    return el('div')
   }
   update(prevEl, newData) {
     const nextEl = this.render(newData);
     if (nextEl.isEqualNode(prevEl)) {
       console.warn(
-          `render() was called but there was no change in the rendered output`,
-          this.element);
+        `render() was called but there was no change in the rendered output`,
+        this.element);
     } else {
       prevEl.parentElement.replaceChild(nextEl, prevEl);
     }
