@@ -3,8 +3,10 @@
 
 # 使用
 
-``` npm i goodbyehx --save ```
-``` npm i babel-plugin-transform-goodbyehx-jsx --save-dev```
+``` npm i goodbyehx --save ```   
+
+``` npm i babel-plugin-transform-goodbyehx-jsx --save-dev```     
+
 ```
 // index.jsx
 import * as Gbh from 'goodbyehx';
@@ -54,7 +56,9 @@ Gbh.createApp('aipapa', App);
 }
 ```
 推荐使用parcel来启动devserver和build，当然其他构建工具如webpack也是可以的。 
-`` npm i parcel -g ``
+
+``` npm i parcel -g ```     
+
 
 然后创建文件index.html
 ```
@@ -74,6 +78,7 @@ Gbh.createApp('aipapa', App);
 <script src="./index.jsx"></script>
 
 </html>
-```
+```  
+
 执行命令`` parcel index.html ``  
 打开127.0.0.1:1234,如果页面渲染成功就可以愉快的玩耍了^_^
