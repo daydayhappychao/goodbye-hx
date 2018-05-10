@@ -4,7 +4,7 @@
 # 使用
 
 ``` npm i goodbyehx --save ```
-``` npm i babel-plugin-transform-goodbyehx-jsx --save-dev``
+``` npm i babel-plugin-transform-goodbyehx-jsx --save-dev```
 ```
 // index.jsx
 import * as Gbh from 'goodbyehx';
