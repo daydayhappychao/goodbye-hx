@@ -41,14 +41,19 @@ function setStyles(el, styles) {
 }
 
 function makeElement(type, textOrPropsOrChild?, ...otherChildren) {
-  const el = document.createElement(type);
+  let el
+  if (typeof type === 'string') {
+    el = document.createElement(type);
+  } else if (typeof type === 'function') {
+    el = (new type()).element
+  }
   if (Array.isArray(textOrPropsOrChild)) {
     appendArray(el, textOrPropsOrChild);
   } else if (textOrPropsOrChild instanceof Element) {
     el.appendChild(textOrPropsOrChild);
   } else if (typeof textOrPropsOrChild === `string`) {
     appendText(el, textOrPropsOrChild);
-  } else if (typeof textOrPropsOrChild === `object`) {
+  } else if (textOrPropsOrChild && typeof textOrPropsOrChild === `object`) {
     Object.keys(textOrPropsOrChild).forEach((propName) => {
       if (propName in el || attributeExceptions.indexOf(propName) !== -1) {
         const value = textOrPropsOrChild[propName];
