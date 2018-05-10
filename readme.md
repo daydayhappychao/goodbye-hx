@@ -1,8 +1,10 @@
-> 一个微型mvvm框架实现
+> 一个微型mvvm框架实现,可以用来学习，玩耍，或者构建一些小应用
+
 
 # 使用
 
-`` npm i goodbyehx babel-plugin-transform-goodbyehx-jsx --save ``
+``` npm i goodbyehx --save ```
+``` npm i babel-plugin-transform-goodbyehx-jsx --save-dev``
 ```
 // index.jsx
 import * as Gbh from 'goodbyehx';
@@ -10,6 +12,7 @@ const store = {
     // your original store here
     color: 'red'
 }
+Gbh.store.init(store);
 class App extends Gbh.Component {
   constructor() {
       // 第一个参数为组件name,不可重复
