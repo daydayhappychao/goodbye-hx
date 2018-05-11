@@ -1,9 +1,6 @@
 import * as deepEql from 'deep-eql'
 class Store {
-    constructor(initState?) {
-        if (initState) {
-            this.state = initState
-        }
+    constructor() {
         this.getState = this.getState.bind(this)
     }
     state: any = {}
@@ -25,7 +22,7 @@ class Store {
     dispatch = (newState) => {
         let ids = [];
         for (const key in this.state) {
-            if (newState[key] !== null && !deepEql(newState[key], this.state[key])) {
+            if (newState[key] !== undefined && !deepEql(newState[key], this.state[key])) {
                 this.state[key] = newState[key];
                 for (const listenerKey in this.listener) {
                     if (this.listener[listenerKey].fields.indexOf(key) !== -1) {
